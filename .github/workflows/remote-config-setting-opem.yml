@@ -3,7 +3,7 @@ name: Manual Remote Config
 on:
   workflow_dispatch:
     branches:
-      - "*"
+      - main
 
 env:
   GOOGLE_APPLICATION_CREDENTIALS: "./serviceAccountReview.json"
