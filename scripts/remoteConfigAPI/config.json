@@ -1,0 +1,32 @@
+{
+  "conditions": [
+    {
+      "name": "android_en",
+      "expression": "device.os == 'android' && device.country in ['us', 'uk']",
+      "tagColor": "BLUE"
+    }
+  ],
+  "parameters": {
+    "appConfig2": {
+      "defaultValue": { "value": "{\"maintenance\":true}" },
+      "description": "アプリの設定",
+      "valueType": "JSON"
+    },
+    "appConfig": {
+      "defaultValue": { "useInAppDefault": true },
+      "description": "spring season menu visibility.",
+      "valueType": "STRING"
+    }
+  },
+  "parameterGroups": {},
+  "etag": "etag-871759011558-3",
+  "version": {
+    "versionNumber": "3",
+    "updateOrigin": "ADMIN_SDK_NODE",
+    "updateType": "INCREMENTAL_UPDATE",
+    "updateUser": {
+      "email": "firebase-adminsdk-ixaay@reactnativefilebaseauthdemo.iam.gserviceaccount.com"
+    },
+    "updateTime": "Sun, 26 Jun 2022 13:43:50 GMT"
+  }
+}

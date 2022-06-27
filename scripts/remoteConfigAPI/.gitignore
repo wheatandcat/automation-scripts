@@ -1,0 +1,4 @@
+node_modules
+.env
+serviceAccountReview.json
+.DS_Store
