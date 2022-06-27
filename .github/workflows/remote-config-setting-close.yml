@@ -1,0 +1,37 @@
+name: Manual Remote Config
+
+on:
+  workflow_dispatch:
+
+env:
+  GOOGLE_APPLICATION_CREDENTIALS: "./serviceAccountReview.json"
+  SERVICE_ACCOUNT_JSON: ${{ secrets.REVIEW_SERVICE_ACCOUNT_JSON }}
+jobs:
+  remote-config-setting-close:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: yarn
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-emote-config-setting-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys:
+            ${{ runner.os }}-memoir-
+
+      - name: Install node_modules
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install
+        working-directory: ./scripts/remoteConfigAPI
+
+      - name: Create serviceAccount.json file
+        run: echo $SERVICE_ACCOUNT_JSON | base64 --decode -i > ./serviceAccountReview.json
+        working-directory: ./scripts/remoteConfigAPI
+
+      - name: open
+        run: yarn close
+        working-directory: ./scripts/remoteConfigAPI
