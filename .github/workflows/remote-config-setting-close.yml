@@ -27,6 +27,6 @@ jobs:
         run: echo $SERVICE_ACCOUNT_JSON | base64 --decode -i > ./serviceAccountReview.json
         working-directory: ./scripts/remoteConfigAPI
 
-      - name: open
+      - name: close
         run: yarn close
         working-directory: ./scripts/remoteConfigAPI
