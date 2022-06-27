@@ -1,4 +1,4 @@
-name: Manual Remote Config
+name: Manual Remote Config Open
 
 on:
   workflow_dispatch:
