@@ -2,6 +2,8 @@ name: Manual Remote Config
 
 on:
   workflow_dispatch:
+    branches:
+      - main
 
 env:
   GOOGLE_APPLICATION_CREDENTIALS: "./serviceAccountReview.json"
@@ -19,9 +21,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.cache/yarn
-          key: ${{ runner.os }}-emote-config-setting-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          key: ${{ runner.os }}-emote-config-setting-${{ hashFiles(format('{0}{1}', github.workspace, '/scripts/remoteConfigAPI/yarn.lock')) }}
           restore-keys:
-            ${{ runner.os }}-memoir-
+            ${{ runner.os }}-remote-config-setting
 
       - name: Install node_modules
         if: steps.cache.outputs.cache-hit != 'true'
