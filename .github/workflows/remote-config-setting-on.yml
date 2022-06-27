@@ -1,4 +1,4 @@
-name: Manual Remote Config Open
+name: Manual Remote Config ON
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ env:
   GOOGLE_APPLICATION_CREDENTIALS: "./serviceAccountReview.json"
   SERVICE_ACCOUNT_JSON: ${{ secrets.REVIEW_SERVICE_ACCOUNT_JSON }}
 jobs:
-  remote-config-setting-open:
+  remote-config-setting-on:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,6 +27,6 @@ jobs:
         run: echo $SERVICE_ACCOUNT_JSON | base64 --decode -i > ./serviceAccountReview.json
         working-directory: ./scripts/remoteConfigAPI
 
-      - name: open
-        run: yarn open
+      - name: maintenance on
+        run: yarn on
         working-directory: ./scripts/remoteConfigAPI

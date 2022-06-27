@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "open": "ts-node open.ts",
-    "close": "ts-node close.ts",
+    "off": "ts-node maintenance_off.ts",
+    "on": "ts-node maintenance_on.ts",
     "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}"
   },
   "author": "",
