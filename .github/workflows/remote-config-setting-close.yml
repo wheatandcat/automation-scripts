@@ -17,16 +17,9 @@ jobs:
         with:
           node-version: 16.x
           cache: yarn
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/yarn
-          key: ${{ runner.os }}-remote-config-setting-${{ hashFiles(format('{0}{1}', github.workspace, '/scripts/remoteConfigAPI/yarn.lock')) }}
-          restore-keys:
-            ${{ runner.os }}-remote-config-setting
+          cache-dependency-path: ./scripts/remoteConfigAPI/yarn.lock
 
       - name: Install node_modules
-        if: steps.cache.outputs.cache-hit != 'true'
         run: yarn install
         working-directory: ./scripts/remoteConfigAPI
 
