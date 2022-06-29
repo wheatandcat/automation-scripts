@@ -1,4 +1,4 @@
-# RemoteConfig を API 経由で操作する
+# SecretManager を API 経由で操作する
 
 ```bash
 $ yarn off
